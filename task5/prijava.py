@@ -24,7 +24,7 @@ if (os.environ["REQUEST_METHOD"].upper() == "POST"):
     if uspilo:
         user_id = db.get_user_id(email)
         db.get_or_create_session_id(str(user_id))
-        print ('Location: promjenalozinke.py?email=" + email + "\r\n\r\n')
+        print ('Location: index.py?email=" + email + "\r\n\r\n')
 
 
 base.start_html()

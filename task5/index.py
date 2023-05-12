@@ -4,6 +4,7 @@ import os
 import base
 import subjects
 import db
+import session
 
 def main_page():
     print("""
@@ -119,15 +120,15 @@ subjects_list = db.get_subjects()
 
 if os.environ['REQUEST_METHOD'] == 'POST':
     if params.getvalue("odjava") == "Odjava":
-        db.logout()
-        print("Location: Vjezba5Pri.py\r\n\r\n")
+        session.logout()
+        print("Location: prijava.py\r\n\r\n")
     
     elif params.getvalue("promjeni_lozinku") == "Promjeni lozinku":
-        print("Location: Vjezba5Pro.py?email=" + email + "\r\n\r\n")
+        print("Location: promjenalozinke.py?email=" + email + "\r\n\r\n")
 
 base.start_html()
 main_page()
 print_navigation()
 print_table(year)
 base.end_html()
-print(session_dict)
+#print(session_dict)

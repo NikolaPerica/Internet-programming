@@ -155,6 +155,20 @@ def get_user_id(email):
         return None
     else:
         return user_id[0]
+    
+def check_password(session_id, check_input_password):
+    mydb = get_DB_connection()
+    cursor = mydb.cursor(buffered=True)
+    query = "SELECT password FROM users WHERE id= %s"
+    values = (session_id,)
+    cursor.execute(query, values)
+    password = cursor.fetchone()
+    password_str = password[0] if password else None
+    cursor.close()
+    mydb.close()
+    if password_utils.verify_password(check_input_password, password_str):
+        return True
+    return False
 
 
 def get_subjects():

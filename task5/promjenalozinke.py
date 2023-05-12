@@ -57,6 +57,12 @@ if os.environ['REQUEST_METHOD'] == 'POST':
                 message = "<p>Prazan unos</p>"
             if new_password != repassword:
                 message = "<p>Nove sifre se ne podudaraju</p>"
+            else:
+                if(db.check_password(session_id, current)):
+                    db.change_password(session_id, new_password)
+                    message = "<p>Sifra promijenjena</p>"
+                else:
+                    message = "<p>Krivi unos glavne sifre</p>"
             
 
         elif params.getvalue("mainPage") == "Back":
