@@ -134,6 +134,7 @@ subjects_list = db.get_subjects()
 if os.environ['REQUEST_METHOD'] == 'POST':
     if params.getvalue("odjava") == "Odjava":
         session.logout()
+        db.delete_session(user_id)
         print("Location: prijava.py\r\n\r\n")
     
     elif params.getvalue("promjeni_lozinku") == "Promjeni lozinku":
