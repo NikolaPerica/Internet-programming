@@ -1,0 +1,22 @@
+{% extends 'home.html' %}
+
+{% block main %}
+<hr>
+<a href="../projections/">See movies</a>
+<a href="../all_tickets/">See all tickets</a>
+<a href="../buy_ticket/">Buy ticket</a>
+<br>
+Ulaznice za odabranog korisnika: 
+
+<select onchange="location.href=this.value;">
+    <option value="">Select a user</option>
+    {% for user in users %}
+      <option value="../usertickets/user/{{ user.id }}">{% if user.id == selected_user.id %} &#10003; {% endif %} {{ user.username }}</option>
+    {% endfor %}
+  </select>
+
+<hr>
+
+
+
+{% endblock %}

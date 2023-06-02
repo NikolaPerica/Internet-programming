@@ -1,0 +1,26 @@
+<table>
+    <thead>
+      <tr>
+        <th>Movie Name</th>
+        <th>Time</th>
+        <th>Capacity</th>
+        <th>Available Seats</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for projection, available_seats in projection_list %}
+        <tr>
+          <td>{{ projection.imeFilma }}</td>
+          <td>{{ projection.vrijemeFilma }}</td>
+          <td>{{ projection.kapacitetDvorane }}</td>
+          <td>{{ available_seats }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">No projections available</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="http://localhost:8000/main/">Back</a>
+  

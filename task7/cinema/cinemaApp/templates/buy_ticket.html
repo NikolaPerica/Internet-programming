@@ -1,0 +1,12 @@
+{% block content %}
+  <h1>Buy Ticket</h1>
+  {% if error_message %}
+    <p>{{ error_message }}</p>
+  {% endif %}
+  <form method="post" action="{% url 'buy_ticket' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Buy Ticket</button>
+  </form>
+  <a href="http://localhost:8000/main/">Back</a>
+{% endblock %}

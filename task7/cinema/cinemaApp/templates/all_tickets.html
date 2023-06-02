@@ -1,0 +1,26 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>Ime</th>
+      <th>Broj sjedala</th>
+      <th>Ime filma</th>
+      <th>Termin</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ticket in tickets %}
+      <tr>
+        <td>{{ ticket.idKorisnik }}</td>
+        <td>{{ ticket.brojSjedala }}</td>
+        <td>{{ ticket.idProjekcija }}</td>
+        <td>{{ ticket.idProjekcija.vrijemeFilma }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="3">No projections available</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="http://localhost:8000/main/">Back</a>
