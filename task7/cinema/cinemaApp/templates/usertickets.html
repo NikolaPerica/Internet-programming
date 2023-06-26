@@ -1,0 +1,10 @@
+{% block content %}
+  <h1>Karte za projekciju</h1>
+  {% for karta in  karte%}
+      <h3>Film: {{ karta.idProjekcija.imeFilma }}</h3>
+      <p>Vrijeme filma: {{ karta.idProjekcija.vrijemeFilma }}</p>
+      <p>Broj sjedala: {{ karta.brojSjedala }}</p>
+    <hr>
+  {% endfor %}
+  <a href="http://localhost:8000/main/">Back</a>
+{% endblock %}
