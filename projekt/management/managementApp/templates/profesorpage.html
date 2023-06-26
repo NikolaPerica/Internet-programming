@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-5">
+            <h5>Profesori</h5>
+            <br>
+            <div class="card card-body">
+                <table class="table table-sa">
+                    <tr>
+                        <th>Name</th>
+                        <th>Code</th>
+                    </tr>
+                    {% for predmet in predmeti %}
+                    <tr>
+                        
+                        <td>{{ predmet.name }}</td>
+                        <td>{{ predmet.kod }}</td>
+                        <td><a class="btn btn-primary btn-sm btn-block" href ="{% url 'seestud' predmet.id %}">See students</a></td>
+                        
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

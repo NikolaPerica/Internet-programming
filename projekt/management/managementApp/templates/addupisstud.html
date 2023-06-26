@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="col-md-5">
+        <h5>Add Upis</h5>
+        <br>
+        <div class="card card-body">
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="id_user_id">User ID</label>
+                    {{ form.user_id }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="id_predmet_id">Predmet ID</label>
+                    {{ form.predmet_id }}
+                </div>
+                
+                <div class="form-group">
+                    <label for="id_status">Status</label>
+                    {{ form.status }}
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="col-md-5">
+        <h5>Current Upisi</h5>
+        <br>
+        <div class="card card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Predmet</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for upis in upisi %}
+                    <tr>
+                        <td>{{ upis.predmet_id.name }}</td>
+                        <td>{{ upis.status }}</td>
+                        {% if upis.status == 'up' %}
+                            <td><a class="btn btn-primary btn-sm btn-block" href="{% url 'delete_upis' upis.id %}">Delete upis</a></td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
